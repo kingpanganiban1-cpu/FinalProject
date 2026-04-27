@@ -3,9 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/*Navigation Bar*/
 .navbar {
-  height: 65px;
+  height: 100px;
   background: #15191c;
   display: flex;
   align-items: flex-end;
@@ -16,7 +16,7 @@
 .logo {
   margin-right: auto;
   align-self: center;
-  color: #0b7bdc;
+  color: #dc0b0b;
   font-size: 28px;
   font-weight: bold;
   font-family: Arial, sans-serif;
@@ -68,9 +68,153 @@
   box-shadow: 0 -2px 8px rgba(255, 255, 255, 0.08);
 }
 
+.box{
+  width: 100%;
+  padding: 5px;
+  padding-left: 20px;
+  margin: 10px;
+  background: #be0909;
+display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.search-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.region-section {
+  margin: 20px 25px;
+}
+
+.region-section h2 {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 14px;
+}
+
+.region-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 5px;
+  padding: 3px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.region-tabs button {
+  min-width: 120px;
+  padding: 14px 20px;
+  background: #15191c;
+  color: #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.region-tabs button.region-active {
+  min-width: 145px;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  box-shadow: inset 0 -3px rgba(0, 0, 0, 0.25);
+}
+
+.region-tabs.ncr {
+  background: rgba(128, 128, 128, 0.215);
+  display: flex;
+  flex-wrap: wrap;
+}
+.region-tabs.ncr button{
+    border: 1px solid gray;
+}
+.region-tabs.ncr .region-active {
+  background: gray;
+  flex: 0 0 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.region-tabs.ncr button:not(.region-active) {
+  flex: 0 0 auto;
+}
+.region-tabs.car {
+  background: rgba(0, 128, 0, 0.218);
+}
+.region-tabs.car button{
+    border: 1px solid green;
+}
+.region-tabs.car .region-active {
+  background: green;
+}
+.region-tabs.r1 {
+  background: rgba(245, 245, 220, 0.27);
+}
+.region-tabs.r1 button{
+    border: 1px solid wheat;
+}
+.region-tabs.r1 .region-active {
+  background: wheat;
+}
+.region-tabs.r2 {
+  background: rgba(0, 0, 255, 0.15);
+}
+.region-tabs.r2 button{
+    border: 1px solid blue;
+}
+.region-tabs.r2 .region-active {
+  background: #000099;
+}
+.region-tabs.r3 {
+  background: rgba(255, 255, 0, 0.15);
+}
+.region-tabs.r3 button{
+    border: 1px solid yellow;
+}
+.region-tabs.r3 .region-active {
+  background: #ffff00;
+}
+.region-tabs.r4-a {
+  background: rgba(0, 128, 128, 0.182);
+}
+.region-tabs.r4-a   button{
+    border: 1px solid teal;
+}
+.region-tabs.r4-a .region-active {
+  background: teal;
+}
+.region-tabs.r4-b {
+  background: rgba(0, 255, 255, 0.15);
+}
+.region-tabs.r4-b button{
+    border: 1px solid turquoise;
+}
+.region-tabs.r4-b .region-active {
+  background: #009999;
+}
+.region-tabs.r5 {
+  background: rgba(255, 0, 0, 0.207);
+}
+.region-tabs.r5 button{
+    border: 1px solid red;
+}
+.region-tabs.r5 .region-active {
+  background: red;
+}
+.region-tabs button {
+  transition: all 0.2s ease;
+}
+.region-tabs button:not(.region-active):hover {
+  background: var(--main-color);
+  color: white;
+  transform: translateY(-2px); /* subtle lift */
+}
 iframe {
   width: 100%;
-  height: calc(100vh - 65px);
+  height: calc(100vh - 100px);
   border: none;
   display: block;
   background: #15191c;
