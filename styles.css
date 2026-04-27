@@ -187,13 +187,13 @@ display: flex;
   background: teal;
 }
 .region-tabs.r4-b {
-  background: rgba(0, 255, 255, 0.15);
+  background: rgba(255, 0, 234, 0.15);
 }
 .region-tabs.r4-b button{
-    border: 1px solid turquoise;
+    border: 1px solid rgba(221, 0, 255, 0.278);
 }
 .region-tabs.r4-b .region-active {
-  background: #009999;
+  background: #ec08f0;
 }
 .region-tabs.r5 {
   background: rgba(255, 0, 0, 0.207);
