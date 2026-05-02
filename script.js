@@ -8,3 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Dropdown menu functionalityconst menuBtn = document.getElementById("menuBtn");
+const btn = document.getElementById("menuBtn");
+const dropdown = document.getElementById("dropdown");
+
+menuBtn.addEventListener("click", () => {
+  dropdown.classList.toggle("show");
+});

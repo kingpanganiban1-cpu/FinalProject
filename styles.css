@@ -11,6 +11,8 @@
   align-items: flex-end;
   padding: 0 30px;
   border-bottom: 4px solid #303030;
+  position: relative; 
+  z-index: 1001;
 }
 
 .logo {
@@ -25,6 +27,7 @@
 .tabs {
   display: flex;
   align-items: flex-end;
+  margin-right: 200px;
 }
 
 .tab {
@@ -67,14 +70,57 @@
   z-index: 2;
   box-shadow: 0 -2px 8px rgba(255, 255, 255, 0.08);
 }
+/*Menu*/
+#menuBtn {
+  background: #15191c;
+  color: white;
+  border: 1px solid #4a4a4a;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.menu-wrapper {
+  position: relative;
+  display: inline-block;
+}
 
+.dropdown {
+  position: absolute;   /* makes it float */
+  top: 110%;
+  right: 0;
+  width: 180px;
+  z-index: 1000;
+
+  background: #15191c;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+
+  display: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.dropdown.show {
+  display: block;
+}
+
+.dropdown a {
+  display: block;       /* stack vertically */
+  padding: 12px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.dropdown a:hover {
+  background: #838383;
+}
+
+/*Search Box*/
 .box{
-  width: 100%;
   padding: 5px;
   padding-left: 20px;
   margin: 10px;
   background: #be0909;
-display: flex;
+  display: flex;
   align-items: center;
   gap: 5px;
 }
@@ -83,15 +129,31 @@ display: flex;
   height: 20px;
   margin-right: 10px;
 }
+.box p{
+  color: white;
+  font-size: 14px;
+}
+/*Region Sections*/
 .region-section {
   margin: 20px 25px;
+}
+.region-btn {
+  display: inline-block;
+  text-decoration: none;
+  min-width: 120px;
+  padding: 14px 20px;
+  background: #15191c;
+  color: #ddd;
+  border: 1px solid gray;
+  border-radius: 4px;
+  text-align: center;
 }
 
 .region-section h2 {
   font-family: Georgia, serif;
   font-size: 28px;
   font-weight: 500;
-  color: white;
+  color: rgb(255, 255, 255);
   margin-bottom: 14px;
 }
 
@@ -99,12 +161,16 @@ display: flex;
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  gap: 5px;
-  padding: 3px;
-  border-radius: 4px;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 6px;
   margin-bottom: 6px;
 }
+.region-tabs a {
+  flex: 0 0 auto;  /* ensures consistent spacing */
+}
 
+.region-tabs a,
 .region-tabs button {
   min-width: 120px;
   padding: 14px 20px;
@@ -113,9 +179,16 @@ display: flex;
   border-radius: 4px;
   cursor: pointer;
   font-size: 15px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.region-tabs button.region-active {
+
+.region-tabs .region-active {
   min-width: 145px;
   color: white;
   font-weight: bold;
@@ -123,13 +196,18 @@ display: flex;
   box-shadow: inset 0 -3px rgba(0, 0, 0, 0.25);
 }
 
+.region-tabs a:not(.region-active):hover,
+.region-tabs button:not(.region-active):hover {
+  background: var(--main-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
 .region-tabs.ncr {
-  background: rgba(128, 128, 128, 0.215);
+  background: rgba(128, 128, 128, 0.048);
   display: flex;
   flex-wrap: wrap;
-}
-.region-tabs.ncr button{
-    border: 1px solid gray;
+  border: 1px solid gray;
 }
 .region-tabs.ncr .region-active {
   background: gray;
@@ -138,13 +216,11 @@ display: flex;
   align-items: center;
   justify-content: center;
 }
-.region-tabs.ncr button:not(.region-active) {
-  flex: 0 0 auto;
-}
+
 .region-tabs.car {
   background: rgba(0, 128, 0, 0.218);
 }
-.region-tabs.car button{
+.region-tabs.car a{
     border: 1px solid green;
 }
 .region-tabs.car .region-active {
@@ -153,7 +229,7 @@ display: flex;
 .region-tabs.r1 {
   background: rgba(245, 245, 220, 0.27);
 }
-.region-tabs.r1 button{
+.region-tabs.r1 a{
     border: 1px solid wheat;
 }
 .region-tabs.r1 .region-active {
@@ -162,7 +238,7 @@ display: flex;
 .region-tabs.r2 {
   background: rgba(0, 0, 255, 0.15);
 }
-.region-tabs.r2 button{
+.region-tabs.r2 a{
     border: 1px solid blue;
 }
 .region-tabs.r2 .region-active {
@@ -171,7 +247,7 @@ display: flex;
 .region-tabs.r3 {
   background: rgba(255, 255, 0, 0.15);
 }
-.region-tabs.r3 button{
+.region-tabs.r3 a{
     border: 1px solid yellow;
 }
 .region-tabs.r3 .region-active {
@@ -180,7 +256,7 @@ display: flex;
 .region-tabs.r4-a {
   background: rgba(0, 128, 128, 0.182);
 }
-.region-tabs.r4-a   button{
+.region-tabs.r4-a   a{
     border: 1px solid teal;
 }
 .region-tabs.r4-a .region-active {
@@ -189,8 +265,8 @@ display: flex;
 .region-tabs.r4-b {
   background: rgba(255, 0, 234, 0.15);
 }
-.region-tabs.r4-b button{
-    border: 1px solid rgba(221, 0, 255, 0.278);
+.region-tabs.r4-b a{
+    border: 1px solid rgb(221, 0, 255);
 }
 .region-tabs.r4-b .region-active {
   background: #ec08f0;
@@ -198,25 +274,95 @@ display: flex;
 .region-tabs.r5 {
   background: rgba(255, 0, 0, 0.207);
 }
-.region-tabs.r5 button{
+.region-tabs.r5 a{
     border: 1px solid red;
 }
 .region-tabs.r5 .region-active {
   background: red;
 }
-.region-tabs button {
-  transition: all 0.2s ease;
+
+/* Container styling */
+.obsession-section {
+  padding: 20px;
+  font-family: sans-serif;
+  border-radius: 20px;
 }
-.region-tabs button:not(.region-active):hover {
-  background: var(--main-color);
+
+/* Grid Layout: 3 columns on desktop, 1 on mobile */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+/* Individual Card Styling */
+.card {
+  display: flex;
+  background: #1f1f1f;
+  text-decoration: none;
+  border: 1px solid #797878;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Text area */
+.card-content {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  color: #0056b3;
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  text-decoration: underline;
+}
+
+.card-content p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* The Orange Arrow Tab */
+.card-arrow {
+  background-color: #ff0000;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  transform: translateY(-2px); /* subtle lift */
+  font-size: 1.5rem;
+  font-weight: bold;
 }
+/* Job Page */
+.jobcontainer {
+  padding: 60px;
+  background-color: #0f1111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 25px 15px;
+  border-radius: 8px;
+  font-size: 25px;
+}
+
 iframe {
   width: 100%;
   height: calc(100vh - 100px);
   border: none;
   display: block;
   background: #15191c;
+  position: relative;
+  z-index: 1;
 }
 
