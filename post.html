@@ -9,8 +9,83 @@
 <body>
 
     <div class="box">
-         <h1>Post a new job opportunity.</h1>    
+         <p>Post a new job.</p>    
   
     </div>
+<div class="job-form-container">
+  <form>
+    <div class="form-group">
+      <label for="title">Job Title: <span style="color:red;">*</span></label>
+      <input type="text" placeholder="e.g. Clerk, Assistant" id="title" name="title" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="desc">Job Description: <span style="color:red;">*</span></label>
+      <textarea id="desc" placeholder="Describe the responsibilities, requirements, and daily tasks..."name="desc" required></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="company">Company name: <span style="color:red;">*</span></label>
+        <input type="text" placeholder="e.g. AB Company" name="company" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address: <span style="color:red;">*</span></label>
+        <input type="text" placeholder="Enter the company's address" id="address" name="address" required>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="contact">Contact number: <span style="color:red;">*</span></label>
+            <input type="text" placeholder="0917-XXX-XXXX" id="contact" name="contact" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address: <span style="color:red;">*</span></label>
+            <input type="email" placeholder="hr@company.com" id="email" name="email" required>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="type">Type of business:</label>
+      <select name="type" id="type">
+        <option value="">Select a type</option>
+        <option value="sole proprietorship">Sole Proprietorship</option>
+        <option value="partnership">Partnership</option>
+        <option value="llc">LLC</option>
+        <option value="corporate">Corporate</option>
+        <option value="nonprofit">Non-Profit</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+        <label>Monthly Salary Range (PHP):<span style="color:red;">*</span></label>
+        <div class="salary-wrapper">
+            <input type="number" name="min_salary" placeholder="Min" min="0">
+            <span class="range-divider">to</span>
+            <input type="number" name="max_salary" placeholder="Max" min="0">
+        </div>
+    </div>
+    <div class="upload-section">
+    <h3>Verification Documents</h3>
+  
+        <div class="form-group">
+            <label for="storefront">Photo of storefront:<span style="color:red;">*</span></label>
+            <input type="file" id="storefront" name="storefront" accept="image/*" required>
+        </div>
+
+        <div class="form-group">
+            <label for="employer_id">Valid ID of employer:<span style="color:red;">*</span></label>
+            <input type="file" id="employer_id" name="employer_id" accept="image/*,application/pdf" required>
+        </div>
+
+        <div class="form-group">
+            <label for="business_permit">Business permit: <span style="color:red;">*</span></label>
+            <input type="file" id="business_permit" name="business_permit" accept="image/*,application/pdf" required>
+        </div>
+    </div>
+
+    <button type="submit" class="submit-btn">Post Job</button>
+  </form>
+</div>
+
 </body>
 </html>
