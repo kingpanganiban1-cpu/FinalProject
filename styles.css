@@ -3,23 +3,64 @@
   padding: 0;
   box-sizing: border-box;
 }
+body, html {
+  overflow-x: hidden; /* Stops the horizontal wobble seen in image_667182.png */
+  background-color: #15191c;
+}
+/* Styles for mobile devices (screens smaller than 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 15px;
+    flex-wrap: wrap; /* Allows logo and menu to stay top, tabs to move below if needed */
+  }
+
+  .tabs {
+    display: none; /* Usually, you hide main tabs on mobile and put them in the menu */
+  }
+
+  /* Form fixes for post.html */
+  .form-row {
+    flex-direction: column; /* Stacks Company and Location vertically */
+    gap: 10px;
+  }
+
+  .job-form-container {
+    padding: 1rem;
+    margin: 10px;
+  }
+
+  .jobcontainer {
+    font-size: 18px;
+    padding: 30px 15px;
+  }
+  
+  /* Region buttons need to wrap so they don't go off-screen */
+  .region-tabs {
+    justify-content: center;
+  }
+  
+  .region-tabs a, .region-tabs button {
+    flex: 1 1 40%; /* Two buttons per row on small screens */
+    min-width: 140px;
+  }
+}
 /*Navigation Bar*/
 .navbar {
-  height: 100px;
+ min-height: 80px; /* Changed from fixed height to min-height */
   background: #15191c;
   display: flex;
-  align-items: flex-end;
-  padding: 0 30px;
+  align-items: center; /* Better centering for mobile */
+  justify-content: space-between; /* Spreads logo and menu button */
+  padding: 0 20px;
   border-bottom: 4px solid #303030;
   position: relative; 
   z-index: 1000;
 }
 
 .logo {
-  margin-right: auto;
-  align-self: center;
   color: #dc0b0b;
-  font-size: 28px;
+  font-size: 24px; /* Slightly smaller for mobile compatibility */
   font-weight: bold;
   font-family: Arial, sans-serif;
 }
@@ -32,21 +73,20 @@
 .tabs {
   display: flex;
   align-items: flex-end;
-  margin-right: 200px;
+  margin-right: 0;
 }
 
 .tab {
   color: white;
   text-decoration: none;
-  padding: 14px 38px;
-  min-width: 135px;
+  padding: 12px 20px; /* Reduced padding for mobile */
+  min-width: 100px;
   text-align: center;
   border-radius: 7px 7px 0 0;
-  font: bold 14px Arial, sans-serif;
+  font: bold 13px Arial, sans-serif;
   border: 1px solid #4a4a4a;
   border-bottom: none;
-  line-height: 1;
-  position: relative;
+  transition: background 0.2s;
 }
 
 .tab + .tab {
@@ -80,32 +120,23 @@
   background: #15191c;
   color: white;
   border: 1px solid #4a4a4a;
-  padding: 10px 20px;
+  padding: 8px 15px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
 }
 .menu-wrapper {
   position: relative;
-  display: inline-block;
 }
 
 .dropdown {
   position: absolute;
-  top: 115%; /* Added a tiny bit more breathing room */
+  top: 100%;
   right: 0;
-  width: 200px; /* Slightly wider for better text flow */
-  z-index: 1000;
-
-  /* Using a deeper dark gray to match image_190803.png */
+  width: 180px;
   background: #111111; 
-  border-radius: 8px;
-  /* Darker, subtle border so it doesn't distract */
   border: 1px solid #333333; 
-
   display: none;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  overflow: hidden; /* Ensures hover background doesn't bleed out of corners */
 }
 
 .dropdown.show {
@@ -230,6 +261,8 @@
   display: flex;
   flex-wrap: wrap;
   border: 1px solid gray;
+  display: flex;
+  flex-wrap: wrap;
 }
 .region-tabs.ncr .region-active {
   background: gray;
@@ -313,8 +346,9 @@
 /* Grid Layout: 3 columns on desktop, 1 on mobile */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 15px;
+  padding: 10px;
 }
 
 /* Individual Card Styling */
@@ -497,13 +531,12 @@ input[type="file"]:hover {
   justify-content: center; 
   margin-top: 20px;
 }
+
+/* Iframe styling */
 iframe {
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 80px); /* Adjusted to match new navbar height */
   border: none;
   display: block;
-  background: #15191c;
-  position: relative;
-  z-index: 1;
 }
 

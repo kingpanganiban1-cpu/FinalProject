@@ -10,9 +10,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Dropdown menu functionalityconst menuBtn = document.getElementById("menuBtn");
-const btn = document.getElementById("menuBtn");
+const menuBtn = document.getElementById("menuBtn");
 const dropdown = document.getElementById("dropdown");
 
-menuBtn.addEventListener("click", () => {
+menuBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
   dropdown.classList.toggle("show");
+});
+
+document.addEventListener("click", (e) => {
+  if (!dropdown.contains(e.target) && e.target !== menuBtn) {
+    dropdown.classList.remove("show");
+  }
+});
+
+
+window.addEventListener("blur", () => {
+  setTimeout(() => {
+    const active = document.activeElement;
+    if (active && active.tagName === "IFRAME") {
+      dropdown.classList.remove("show");
+    }
+  }, 0);
 });
