@@ -33,3 +33,5 @@ window.addEventListener("blur", () => {
     }
   }, 0);
 });
+
+console.log("Script loaded successfully.");
