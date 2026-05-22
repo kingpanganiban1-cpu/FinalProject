@@ -16,10 +16,10 @@ document.getElementById("regsub").onclick = function(event){
    
 
     if (username == "" || email == "" || pass == ""|| con_pass == " "){
-        alert("punuin mo");
+        window.confirm("The form is empty");
     }
     else if(pass !== con_pass){
-        alert("di same pass boi")
+        window.confirm("Password does not match")
     }
     else{
         window.location.href="login.html"
