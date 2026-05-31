@@ -7,44 +7,7 @@ body, html {
   overflow-x: hidden; /* Stops the horizontal wobble seen in image_667182.png */
   background-color: #15191c;
 }
-/* Styles for mobile devices (screens smaller than 768px) */
-@media (max-width: 768px) {
-  .navbar {
-    height: auto;
-    padding: 15px;
-    flex-wrap: wrap; /* Allows logo and menu to stay top, tabs to move below if needed */
-  }
 
-  .tabs {
-    display: none; /* Usually, you hide main tabs on mobile and put them in the menu */
-  }
-
-  /* Form fixes for post.html */
-  .form-row {
-    flex-direction: column; /* Stacks Company and Location vertically */
-    gap: 10px;
-  }
-
-  .job-form-container {
-    padding: 1rem;
-    margin: 10px;
-  }
-
-  .jobcontainer {
-    font-size: 18px;
-    padding: 30px 15px;
-  }
-  
-  /* Region buttons need to wrap so they don't go off-screen */
-  .region-tabs {
-    justify-content: center;
-  }
-  
-  .region-tabs a, .region-tabs button {
-    flex: 1 1 40%; /* Two buttons per row on small screens */
-    min-width: 140px;
-  }
-}
 /*Navigation Bar*/
 .navbar {
  min-height: 80px; /* Changed from fixed height to min-height */
@@ -105,11 +68,9 @@ body, html {
   background: #a88700;
 }
 .blue {
-  background: #0ca6e2;
+  background: #0ca5e2b0;
 }
 .active {
-  background: #111518;
-  color: #3da0ff;
   padding-top: 18px;
   padding-bottom: 18px;
   z-index: 2;
@@ -261,7 +222,6 @@ body, html {
   display: flex;
   flex-wrap: wrap;
   border: 1px solid gray;
-  display: flex;
   flex-wrap: wrap;
 }
 .region-tabs.ncr .region-active {
@@ -321,7 +281,7 @@ body, html {
   background: rgba(255, 0, 234, 0.15);
 }
 .region-tabs.r4-b a{
-    border: 1px solid rgb(221, 0, 255);
+  border: 1px solid rgb(221, 0, 255);
 }
 .region-tabs.r4-b .region-active {
   background: #ec08f0;
@@ -411,7 +371,17 @@ body, html {
   border-radius: 8px;
   font-size: 25px;
 }
-
+.job-container {
+  background-color: #0f1111;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 25px 15px;
+  border-radius: 8px;
+  font-size: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 /*post job page*/
 .job-form-container {
   background-color: #111; /* Matching your dark theme */
@@ -421,7 +391,84 @@ body, html {
   margin: 20px 15px;
   font-family: sans-serif;
 }
+/* Talent page */
+.hire-container {
+  background-color: #0f1111;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 25px 15px;
+  font-size: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 400px;
+  border-radius: 8px;
+}
+.row {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #353535;
+    gap: 10px;
+    width: 50%;
+    height: 120px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    margin: 20px;
+    margin-left: 15px;
+    border-radius: 8px;
+    border: 1px solid #555;
+}
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+.profile-info h3 {
+    margin: 0;
+    color: #fff;
+}
+.profile-info h4 {
+    margin: 0;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+.profile-container a {
+    display: flex;
+    margin: 0;
+    color: #ddd;
+    font-size: 0.9rem;
+    align-self: flex-end;
+    text-decoration: none;
+    margin-left: auto;
+    align-self: flex-end;
+    padding-bottom: 10px;
+}
+.boxx {
+    width: 100px;
+    height: 100px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    border-radius: 50%; /* Circle shape layout */
+    border: 2px solid #2a2a30;
+    background-color: #15191c;
+    margin-top: 10px; 
+}
 
+.boxx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 /* Layout logic */
 .form-group {
@@ -538,132 +585,4 @@ iframe {
   height: calc(100vh - 80px); /* Adjusted to match new navbar height */
   border: none;
   display: block;
-}
-
-.jobcontainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-/* JOB CARD */
-.job-card {
-    background: rgb(26, 26, 26);
-    border: 1px solid #000000;
-    border-radius: 20px;
-    padding: 25px;
-    margin: 25px auto;
-    width: 95%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease;
-}
-
-.job-card:hover {
-    transform: translateY(-5px);
-}
-
-/* HEADER */
-.job-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
-
-.job-header h2 {
-    color: #ff3b3b;
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.company {
-    color: #cbd5e1;
-    font-size: 1.3rem;
-}
-
-/* HIRING BADGE */
-.job-status {
-    background: #22c55e;
-    color: white;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-/* META INFO */
-.job-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin: 20px 0;
-    color: #e2e8f0;
-    font-size: 1.2rem;
-}
-
-.job-meta span {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* DESCRIPTION */
-.job-details p {
-    color: #d1d5db;
-    font-size: 1.15rem;
-    line-height: 1.7;
-    margin: 20px 0;
-}
-
-
-.skill-tag {
-    background: #0f274d;
-    color: #60a5fa;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-/* FOOTER */
-.job-footer {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: 25px;
-    padding-top: 20px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.posted-date {
-    color: #94a3b8;
-}
-
-/* BUTTONS */
-.details-btn,
-.apply-btn {
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.details-btn {
-    background: #2563eb;
-    color: white;
-}
-
-.details-btn:hover {
-    background: #1d4ed8;
-}
-
-.apply-btn {
-    background: #ff0000;
-    color: white;
-}
-
-.apply-btn:hover {
-    background: #cc0000;
 }
