@@ -540,3 +540,130 @@ iframe {
   display: block;
 }
 
+.jobcontainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* JOB CARD */
+.job-card {
+    background: rgb(26, 26, 26);
+    border: 1px solid #000000;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 25px auto;
+    width: 95%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+/* HEADER */
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.job-header h2 {
+    color: #ff3b3b;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.company {
+    color: #cbd5e1;
+    font-size: 1.3rem;
+}
+
+/* HIRING BADGE */
+.job-status {
+    background: #22c55e;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* META INFO */
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 20px 0;
+    color: #e2e8f0;
+    font-size: 1.2rem;
+}
+
+.job-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* DESCRIPTION */
+.job-details p {
+    color: #d1d5db;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin: 20px 0;
+}
+
+
+.skill-tag {
+    background: #0f274d;
+    color: #60a5fa;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* FOOTER */
+.job-footer {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 25px;
+    padding-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.posted-date {
+    color: #94a3b8;
+}
+
+/* BUTTONS */
+.details-btn,
+.apply-btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.details-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.details-btn:hover {
+    background: #1d4ed8;
+}
+
+.apply-btn {
+    background: #ff0000;
+    color: white;
+}
+
+.apply-btn:hover {
+    background: #cc0000;
+}
